@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+
+<style>
+
+*. {
+  margin: 0 0;
+  padding: 0 0;
+}
+.mainContainer {
+  display:block;
+  height:200px;
+  width:200px;
+}
+.row {
+  display:inline;
+
+}
+.squares {
+  background-color: yellow;
+  height:10px;
+  width:10px;
+}
+</style>
+
+</head>
+<body>
+
+  <div id="mainContainer">
+    <div class="row">
+      <div class="squares"></div>
+      <div class="squares"></div>
+      <div class="squares"></div>
+      <div class="squares"></div>
+    </div>
+    <div class="row">
+      <div class="squares"></div>
+      <div class="squares"></div>
+      <div class="squares"></div>
+      <div class="squares"></div>
+    </div>
+    <div class="row">
+      <div class="squares"></div>
+      <div class="squares"></div>
+      <div class="squares"></div>
+      <div class="squares"></div>
+    </div>
+    <div class="row">
+      <div class="squares"></div>
+      <div class="squares"></div>
+      <div class="squares"></div>
+      <div class="squares"></div>
+    </div>
+
+  </div>
+
+    <script
+    			  src="https://code.jquery.com/jquery-3.2.1.min.js"
+    			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    			  crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+    document.ready(function() {
+        $(".squares").mouseover(function() {
+            this.css("background-color","black");
+        })
+
+    })
+
+    </script>
+
+</body>
+
+
+</html>
