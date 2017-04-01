@@ -8,50 +8,28 @@
   margin: 0 0;
   padding: 0 0;
 }
-.mainContainer {
+#mainContainer {
   display:block;
-
+  height:1000px;
+  width:1000px;
+  background-color: none;
 }
 .row {
   display:inline;
   float:left;
 
 }
-.squares {
+.square {
   background-color: yellow;
-  height:100px;
-  width:100px;
 }
 </style>
 
 </head>
 <body>
+  <button id="newGridButton">New Grid</button>
 
   <div id="mainContainer">
-    <div class="row">
-      <div class="squares"></div>
-      <div class="squares"></div>
-      <div class="squares"></div>
-      <div class="squares"></div>
-    </div>
-    <div class="row">
-      <div class="squares"></div>
-      <div class="squares"></div>
-      <div class="squares"></div>
-      <div class="squares"></div>
-    </div>
-    <div class="row">
-      <div class="squares"></div>
-      <div class="squares"></div>
-      <div class="squares"></div>
-      <div class="squares"></div>
-    </div>
-    <div class="row">
-      <div class="squares"></div>
-      <div class="squares"></div>
-      <div class="squares"></div>
-      <div class="squares"></div>
-    </div>
+
 
   </div>
 
@@ -61,10 +39,45 @@
     			  crossorigin="anonymous"></script>
     <script type="text/javascript">
 
+    var height;
+    var width;
 
-        $(".squares").mouseover(function() {
-            $(this).css("background-color","black");
-        })
+    function makeGrid(height, width) {
+
+          var pixelHeight = 999/height;
+          var pixelWidth = 999/width;
+
+              for (var i = 0; i < width; i++) {
+                $("#mainContainer").append("<div class='row'></div>")
+              }
+              $(".row").css("width",pixelWidth);
+
+              for (var j = 0 ; j < height; j++){
+                $(".row").append("<div class='square'></div>")
+              }
+              $(".square").css("height",pixelHeight);
+
+      }
+    function removeGrid() {
+      $("#mainContainer").empty();
+    }
+    //inital square
+    makeGrid(100,100);
+    $(".square").mouseover(function() {
+        $(this).css("background-color","black");
+    })
+      $("#newGridButton").on("click", function() {
+          height = prompt("Enter number of pixels for height","");
+          width = prompt("Enter number of pixels for width","");
+          removeGrid();
+          makeGrid(height, width);
+          $(".square").mouseover(function() {
+              $(this).css("background-color","black");
+          })
+      });
+
+
+
 
 
 
